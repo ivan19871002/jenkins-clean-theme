@@ -1,6 +1,6 @@
 body {
     background: #fff!important;
-    min-width: 855px;
+    min-width: 845px;
     position: relative;
 }
 
@@ -81,7 +81,7 @@ body {
     /*
     background: rgba(255, 255, 255, 0.2);
     */
-    color: #aaaaaa !important;
+    color: #666666 !important;
     text-decoration: none !important;
 }
 
@@ -215,29 +215,29 @@ tr {
     border-top: none!important;
 }
 
-#projectstatus td,.bigtable td {
-    padding: 10px!important;
-}
-
-#projectstatus tr:nth-child(even)>td,.bigtable tr:nth-child(even)>td {
-    background: rgba(0,0,0,.075)!important;
-}
-
-#projectstatus tr:nth-child(odd)>td,.bigtable tr:nth-child(odd)>td {
-    background: rgba(0,0,0,.025)!important;
-}
-
-#projectstatus tr th:first-child,.bigtable tr th:first-child {
-    padding: 10px;
-    #background: rgba(0,0,0,.1)!important;
-}
-
-#projectstatus,.bigtable {
+.bigtable {
     border: 1px solid rgba(0,0,0,.1)!important;
 }
 
 .bigtable tr {
     border: none!important;
+}
+
+.bigtable th, .bigtable td {
+    padding: 10px 15px 10px 0 !important;
+}
+
+.bigtable tr th:first-child,
+.bigtable tr td:first-child {
+    padding-left: 10px !important;
+}
+
+.bigtable tr:nth-child(even)>td, .bigtable tr:nth-child(even)>td {
+    background: rgba(0,0,0,.075)!important;
+}
+
+.bigtable tr:nth-child(odd)>td, .bigtable tr:nth-child(odd)>td {
+    background: rgba(0,0,0,.025)!important;
 }
 
 tr:hover {
@@ -301,9 +301,8 @@ td.inactive:hover {
     /*
     height: 100%!important;
     */
-    /* */
     position: absolute!important;
-    /* */
+    width: 300px !important;
 }
 
 #main-panel {
@@ -315,6 +314,7 @@ td.inactive:hover {
     height: 100%!important;
     */
     float: right!important;
+    padding-left: 320px !important;
 }
 
 table {
@@ -368,20 +368,35 @@ table {
     display: none;
 }
 
-td.pane,tr.build-row>td {
+td.pane, tr.build-row>td {
     background: rgba(0,0,0,.05)!important;
     border-left: 1px solid #f0f0f0!important;
     border-bottom: 1px solid #f0f0f0!important;
+    padding: 0 12px 0 12px;
     text-align: left;
 }
 
-td.pane:first-of-type,td.pane:last-of-type,th.pane:first-of-type,tr.build-row>td:first-of-type,tr.build-row>td:last-of-type {
+td.pane:first-of-type,
+td.pane:last-of-type,
+th.pane:first-of-type,
+tr.build-row>td:first-of-type,
+tr.build-row>td:last-of-type {
     border-left: none!important;
 }
 
-.build-row:last-of-type>td {
-    padding-top: 10px!important;
-    background: inherit!important;
+tr.build-row td.build-row-cell {
+    height: auto !important;
+    padding-top: 0;
+}
+
+tr.build-row td.build-row-cell .build-name,
+tr.build-row td.build-row-cell .build-details {
+    height: auto !important;
+}
+
+.build-icon {
+    margin-top: -1px;
+    padding: 0 !important;
 }
 
 form {
@@ -390,6 +405,10 @@ form {
 
 .pane-header, .pane-header>a {
     color: #505050!important;
+}
+
+.pane-frame {
+    border: solid 1px #dedede;
 }
 
 .dashboard .pane-frame {
@@ -474,12 +493,6 @@ button:active {
 }
 
 /* TODO: Get icons for these */
-.icon-notepad {
-    -webkit-filter: grayscale(100%) brightness(90%);
-    filter: grayscale(100%) brightness(90%);
-}
-
-/* TODO: Get icons for these */
 a img.icon-expand,
 a img.icon-collapse {
     -webkit-filter: grayscale(100%) brightness(60%);
@@ -489,9 +502,12 @@ a img.icon-collapse {
 /* TODO: Get icons for these */
 a[href*="/job/"].task-icon-link img.icon-next,
 a[href*="/job/"].task-icon-link img.icon-previous {
+    /* This was a hack to begin with, and doesn't work with console output, etc */
+    /*
     -webkit-filter: grayscale(100%) brightness(40%);
     filter: grayscale(100%) brightness(40%);
     visibility: visible;
+    */
 }
 
 a.yuimenuitemlabel {
@@ -510,109 +526,123 @@ a[href*="newJob"].task-icon-link,
 a[href*="newJob"].yuimenuitemlabel,
 a[href*="newDomain"].task-icon-link {
     background: url(img/newjob.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="/asynchPeople/"].task-icon-link,
 a[href*="/asynchPeople/"].yuimenuitemlabel {
     background: url(img/people.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="/builds"].task-icon-link,
 a[href*="/builds"].yuimenuitemlabel {
     background: url(img/history.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
-a[href="/projectRelationship"].task-icon-link {
+a[href="/projectRelationship"].task-icon-link,
+a[href*="/badge"].task-icon-link,
+a[href*="/badge"].yuimenuitemlabel {
     background: url(img/project.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="/fingerprint"].task-icon-link {
     background: url(img/finger.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="/manage"].task-icon-link,
 a[href*="/manage"].yuimenuitemlabel,
+a[href*="/pluginManager"].task-icon-link,
 a[href*="/configure"].yuimenuitemlabel {
     background: url(img/manage.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="/credential-store"].task-icon-link,
 a[href*="/credential-store"].yuimenuitemlabel {
     background: url(img/lock.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*=repository].task-icon-link {
     background: url(img/maven.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="/my-views"].task-icon-link,
 a[href*="/my-views"].yuimenuitemlabel {
     background: url(img/views.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href="/"].task-icon-link {
     background: url(img/return.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*=changes].task-icon-link,
 a[href*=changes].yuimenuitemlabel {
     background: url(img/paper.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="/ws/"].task-icon-link,
 a[href*="/ws/"].yuimenuitemlabel {
     background: url(img/folder.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*=configure].task-icon-link {
     background: url(img/manage.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*=modules].task-icon-link {
     background: url(img/views.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="build?"].task-icon-link {
     background: url(img/build.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*=javadoc].task-icon-link {
     background: url(img/box.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*=console].task-icon-link,
 a[href*=console].yuimenuitemlabel {
     background: url(img/console.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
+}
+
+a[href*="consoleText"].task-icon-link {
+    background: url(img/paper.png) no-repeat !important;
+    background-size: contain !important;
 }
 
 a[href*=Delete].task-icon-link,
 a[href*=delete].task-icon-link,
 a[href*=Delete].yuimenuitemlabel {
     background: url(img/x.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
+}
+
+a[href*="/pollingLog"].task-icon-link,
+a[href*="/pollingLog"].yuimenuitemlabel {
+    background: url(img/paper.png) no-repeat;
+    background-size: contain;
 }
 
 a[href*=git].task-icon-link,
 a[href*=git].yuimenuitemlabel {
     background: url(img/git.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="GitHubPollLog"].task-icon-link,
@@ -623,42 +653,42 @@ a[href*="GitHubPollLog"].yuimenuitemlabel {
 
 a[href*="/testReport"].task-icon-link {
     background: url(img/clip.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 a[href*="/redeploy"].task-icon-link {
     background: url(img/redeploy.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
 }
 
 /* TODO: Add icon for this */
 a[href*="/injectedEnvVars"].task-icon-link,
 a[href*="/injectedEnvVars"].yuimenuitemlabel {
     background: url(img/maven.png) no-repeat;
-    background-size: contain !important;
+    background-size: contain;
 }
 
 /* TODO: Add icon for this */
 a[href*="/tagBuild"].task-icon-link,
 a[href*="/tagBuild"].yuimenuitemlabel {
     background: url(img/views.png) no-repeat;
-    background-size: contain !important
+    background-size: contain;
 }
 
 div.task a[href="#"]:first-child {
     background: url(img/x.png) no-repeat;
-    background-size: contain!important;
+    background-size: contain;
     padding-left: 18px;
     vertical-align: middle!important;
 }
 
 a.build-health-link {
     padding-left: 24px;
-    margin-left: 12px;
+    margin-left: 0;
     vertical-align: middle!important;
 }
 
-a.build-health-link img,td img[src*=health] {
+a.build-health-link img, td img[src*=health] {
     display: none!important;
 }
 
@@ -666,12 +696,12 @@ img[src*="copyright-vertical.png"] {
     opacity: .1;
 }
 
-td.healthReport a.build-health-link {
+.healthReport a.build-health-link {
     background: url(img/cloud.png) no-repeat!important;
     background-size: contain!important;
 }
 
-td.healthReport[data="100"] a.build-health-link {
+.healthReport[data="100"] a.build-health-link {
     background: url(img/sun.png) no-repeat!important;
     background-size: contain!important;
 }
@@ -739,7 +769,10 @@ td:first-child a[href=changes] {
     margin-top: -20px;
 }
 
-#main-panel>table .fileList img,#main-panel>table a[href*="*view*"],#main-panel>table>tbody>tr img[src*=clipboard],#main-panel>table>tbody>tr img[src*=package] {
+#main-panel>table .fileList img,
+#main-panel>table a[href*="*view*"],
+#main-panel>table>tbody>tr img[src*=clipboard],
+#main-panel>table>tbody>tr img[src*=package] {
     display: none!important;
 }
 
