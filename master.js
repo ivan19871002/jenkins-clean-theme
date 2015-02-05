@@ -23,6 +23,9 @@ $jq(document).ready(function() {
     _refreshPart(id, url);
     if(id == 'executors') updateExecutors();
   }
+  
+  // #bottom-sticker is auto-generated, and static CSS doesn't work
+  $jq("#bottom-sticker").css("padding-bottom", "30px");
 });
 
 $jq(window).resize(function() {

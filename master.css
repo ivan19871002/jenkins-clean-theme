@@ -1,11 +1,26 @@
 body {
     background: #fff!important;
+    min-width: 855px;
+    position: relative;
+}
+
+#header {
+    background: #333!important;
+}
+
+#header .login a {
+    color: #fff!important;
+}
+
+#header .login a:hover {
+    color: #ccc!important;
 }
 
 #main-panel > ul:nth-child(8) > li > img {
     margin-right: 10px;
     margin-bottom: 10px;
 }
+
 
 #top-panel {
     height: 55px!important;
@@ -23,25 +38,55 @@ body {
     width: 300px;
 }
 
+#jenkins-home-link {
+    background: url(img/jenkins-text.png) no-repeat;
+    background-position: center right;
+    height: 40px !important;
+    width: 155px;
+}
+
+#jenkins-home-link:hover {
+    -webkit-filter: drop-shadow(12px 12px 25px rgba(255, 255, 255, 0.75));
+    filter: drop-shadow(12px 12px 25px rgba(255, 255, 255, 0.75));
+    transition: 0.3s;
+}
+
+#jenkins-home-link img:nth-child(2) {
+    visibility: hidden;
+}
+
 #breadcrumbs {
     background: #326ca6;
     border-top: 1px solid #036;
     border-bottom: none!important;
     margin-bottom: 15px;
     padding-left: 8px!important;
+    padding-top: 5px !important;
     height: 35px!important;
+}
+
+#breadcrumbs li.children {
+    margin-top: 9px;
 }
 
 #breadcrumbs li a {
     color: #fff!important;
-    padding-top: 5px;
+    padding-top: 0;
+    /*
     height: 30px!important;
+    */
 }
 
 #breadcrumbs li a:hover {
-    background: #fff;
-    color: #505050!important;
-    text-decoration: none!important;
+    /*
+    background: rgba(255, 255, 255, 0.2);
+    */
+    color: #aaaaaa !important;
+    text-decoration: none !important;
+}
+
+#menuSelector:hover {
+    opacity: 0.5;
 }
 
 #right-top-nav a {
@@ -56,8 +101,10 @@ body {
 }
 
 #right-top-nav a:hover {
+    /*
     background: #fff;
-    color: #505050!important;
+    */
+    color: #aaaaaa !important;
 }
 
 #main-table {
@@ -79,6 +126,10 @@ body {
     margin-top: 3px!important;
 }
 
+.yuimenuitem a {
+    color: #505050 !important;
+}
+
 #search-form>a {
     padding-bottom: 5px;
 }
@@ -95,7 +146,9 @@ body {
 }
 
 #footer {
+    /*
     background: rgba(0,0,0,.04);
+    */
     color: #505050!important;
 }
 
@@ -104,7 +157,10 @@ body {
 }
 
 #footer-container {
+    background-color: #ededed;
     position: fixed;
+        bottom: 0;
+    z-index: 100;
 }
 
 a {
@@ -239,18 +295,25 @@ td.inactive:hover {
 }
 
 #side-panel {
-    background: rgba(0,0,0,.05)!important;
+    background: #ededed !important;
     padding-left: 0!important;
     padding-right: 0!important;
+    /*
     height: 100%!important;
+    */
+    /* */
     position: absolute!important;
+    /* */
 }
 
 #main-panel {
+    padding: 10px 10px 33px 10px;
+    /*
     border-left: 1px solid #ddd!important;
     padding: 10px!important;
     margin-left: 10px!important;
     height: 100%!important;
+    */
     float: right!important;
 }
 
@@ -291,9 +354,11 @@ table {
     border: none!important;
 }
 
+/*
 .pane {
     margin-top: 15px!important;
 }
+*/
 
 .subtasks,.task {
     min-height: 38px!important;
@@ -323,8 +388,12 @@ form {
     clear: both;
 }
 
-.pane-header,.pane-header>a {
+.pane-header, .pane-header>a {
     color: #505050!important;
+}
+
+.dashboard .pane-frame {
+    border: 0;
 }
 
 th.pane,tr.build-row>th {
@@ -341,6 +410,14 @@ button {
     border-radius: 5px!important;
     background: #F0F0F0!important;
     outline: 0!important;
+}
+
+button:hover {
+    box-shadow: 0 0 10px #cccccc inset;
+}
+
+button:active {
+    box-shadow: 0 0 10px #888888 inset !important;
 }
 
 .section-header,label {
@@ -363,136 +440,215 @@ button {
     clear: right;
 }
 
-a.task-icon-link {
+.task a {
+    /*
     padding-left: 18px;
     margin-left: 8px;
+    */
+    padding-left: 0;
+    margin-left: 0;
+    background-position-x: 50% !important;
     vertical-align: middle!important;
 }
 
-a.task-icon-link img {
-    display: none!important;
+.task a img, a.yuimenuitemlabel img {
+    /*
+    display: none;
+    */
+    height: 20px !important;
+    width: 20px !important;
+    margin: 0 !important;
+    visibility: hidden;
 }
 
-a[href*="/job/"].task-icon-link {
-    background: url(img/return.png) no-repeat!important;
+#tasks div:nth-child(1) a[href*="/job/"].task-icon-link,
+#tasks div:nth-child(1) a[href=".."].task-icon-link {
+    background: url(img/return.png) no-repeat;
+    background-size: contain;
+}
+
+#tasks div:nth-child(2) a[href*="/job/"].task-icon-link,
+#tasks div:nth-child(2) a[href*="/user/"].task-icon-link {
+    background: url(img/project.png) no-repeat;
     background-size: contain!important;
 }
 
-#tasks div:nth-child(2) a[href*="/job/"].task-icon-link {
-    background: url(img/project.png) no-repeat!important;
+/* TODO: Get icons for these */
+.icon-notepad {
+    -webkit-filter: grayscale(100%) brightness(90%);
+    filter: grayscale(100%) brightness(90%);
+}
+
+/* TODO: Get icons for these */
+a img.icon-expand,
+a img.icon-collapse {
+    -webkit-filter: grayscale(100%) brightness(60%);
+    filter: grayscale(100%) brightness(60%);
+}
+
+/* TODO: Get icons for these */
+a[href*="/job/"].task-icon-link img.icon-next,
+a[href*="/job/"].task-icon-link img.icon-previous {
+    -webkit-filter: grayscale(100%) brightness(40%);
+    filter: grayscale(100%) brightness(40%);
+    visibility: visible;
+}
+
+a.yuimenuitemlabel {
+    /*
+    margin: 0 !important;
+    */
+    padding-left: 2px !important;
+    padding-right: 15px !important;
+}
+
+a[href="#"].yuimenuitemlabel {
+    padding-left: 25px !important;
+}
+
+a[href*="newJob"].task-icon-link,
+a[href*="newJob"].yuimenuitemlabel,
+a[href*="newDomain"].task-icon-link {
+    background: url(img/newjob.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href*=newJob].task-icon-link {
-    background: url(img/newjob.png) no-repeat!important;
+a[href*="/asynchPeople/"].task-icon-link,
+a[href*="/asynchPeople/"].yuimenuitemlabel {
+    background: url(img/people.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href*="/asynchPeople/"].task-icon-link {
-    background: url(img/people.png) no-repeat!important;
-    background-size: contain!important;
-}
-
-a[href*="/builds"].task-icon-link {
-    background: url(img/history.png) no-repeat!important;
+a[href*="/builds"].task-icon-link,
+a[href*="/builds"].yuimenuitemlabel {
+    background: url(img/history.png) no-repeat;
     background-size: contain!important;
 }
 
 a[href="/projectRelationship"].task-icon-link {
-    background: url(img/project.png) no-repeat!important;
+    background: url(img/project.png) no-repeat;
     background-size: contain!important;
 }
 
 a[href*="/fingerprint"].task-icon-link {
-    background: url(img/finger.png) no-repeat!important;
+    background: url(img/finger.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href="/manage"].task-icon-link {
-    background: url(img/manage.png) no-repeat!important;
+a[href*="/manage"].task-icon-link,
+a[href*="/manage"].yuimenuitemlabel,
+a[href*="/configure"].yuimenuitemlabel {
+    background: url(img/manage.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href*="/credential-store"].task-icon-link {
-    background: url(img/lock.png) no-repeat!important;
+a[href*="/credential-store"].task-icon-link,
+a[href*="/credential-store"].yuimenuitemlabel {
+    background: url(img/lock.png) no-repeat;
     background-size: contain!important;
 }
 
 a[href*=repository].task-icon-link {
-    background: url(img/maven.png) no-repeat!important;
+    background: url(img/maven.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href="/me/my-views"].task-icon-link {
-    background: url(img/views.png) no-repeat!important;
+a[href*="/my-views"].task-icon-link,
+a[href*="/my-views"].yuimenuitemlabel {
+    background: url(img/views.png) no-repeat;
     background-size: contain!important;
 }
 
 a[href="/"].task-icon-link {
-    background: url(img/return.png) no-repeat!important;
+    background: url(img/return.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href*=changes].task-icon-link {
-    background: url(img/paper.png) no-repeat!important;
+a[href*=changes].task-icon-link,
+a[href*=changes].yuimenuitemlabel {
+    background: url(img/paper.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href*="/ws/"].task-icon-link {
-    background: url(img/folder.png) no-repeat!important;
+a[href*="/ws/"].task-icon-link,
+a[href*="/ws/"].yuimenuitemlabel {
+    background: url(img/folder.png) no-repeat;
     background-size: contain!important;
 }
 
 a[href*=configure].task-icon-link {
-    background: url(img/manage.png) no-repeat!important;
+    background: url(img/manage.png) no-repeat;
     background-size: contain!important;
 }
 
 a[href*=modules].task-icon-link {
-    background: url(img/views.png) no-repeat!important;
+    background: url(img/views.png) no-repeat;
     background-size: contain!important;
 }
 
 a[href*="build?"].task-icon-link {
-    background: url(img/build.png) no-repeat!important;
+    background: url(img/build.png) no-repeat;
     background-size: contain!important;
 }
 
 a[href*=javadoc].task-icon-link {
-    background: url(img/box.png) no-repeat!important;
+    background: url(img/box.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href*=console].task-icon-link {
-    background: url(img/console.png) no-repeat!important;
+a[href*=console].task-icon-link,
+a[href*=console].yuimenuitemlabel {
+    background: url(img/console.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href*=Delete].task-icon-link,a[href*=delete].task-icon-link {
-    background: url(img/x.png) no-repeat!important;
+a[href*=Delete].task-icon-link,
+a[href*=delete].task-icon-link,
+a[href*=Delete].yuimenuitemlabel {
+    background: url(img/x.png) no-repeat;
     background-size: contain!important;
 }
 
-a[href*=git].task-icon-link {
-    background: url(img/git.png) no-repeat!important;
+a[href*=git].task-icon-link,
+a[href*=git].yuimenuitemlabel {
+    background: url(img/git.png) no-repeat;
     background-size: contain!important;
+}
+
+a[href*="GitHubPollLog"].task-icon-link,
+a[href*="GitHubPollLog"].yuimenuitemlabel {
+    background: url(img/paper.png) no-repeat;
+    background-size: contain;
 }
 
 a[href*="/testReport"].task-icon-link {
-    background: url(img/clip.png) no-repeat!important;
+    background: url(img/clip.png) no-repeat;
     background-size: contain!important;
 }
 
 a[href*="/redeploy"].task-icon-link {
-    background: url(img/redeploy.png) no-repeat!important;
+    background: url(img/redeploy.png) no-repeat;
     background-size: contain!important;
 }
 
+/* TODO: Add icon for this */
+a[href*="/injectedEnvVars"].task-icon-link,
+a[href*="/injectedEnvVars"].yuimenuitemlabel {
+    background: url(img/maven.png) no-repeat;
+    background-size: contain !important;
+}
+
+/* TODO: Add icon for this */
+a[href*="/tagBuild"].task-icon-link,
+a[href*="/tagBuild"].yuimenuitemlabel {
+    background: url(img/views.png) no-repeat;
+    background-size: contain !important
+}
+
 div.task a[href="#"]:first-child {
-    background: url(img/x.png) no-repeat!important;
+    background: url(img/x.png) no-repeat;
     background-size: contain!important;
     padding-left: 18px;
-    margin-left: 8px;
     vertical-align: middle!important;
 }
 
@@ -545,7 +701,8 @@ a[href=javadoc] img {
 td:first-child a[href="ws/"] {
     background: url(img/folder.png) no-repeat!important;
     background-size: contain!important;
-    padding: 24px!important;
+    background-position: center center !important;
+    padding: 12px!important;
     display: block!important;
 }
 
@@ -556,7 +713,8 @@ a[href="ws/"] img {
 td:first-child a[href=changes] {
     background: url(img/paper.png) no-repeat!important;
     background-size: contain!important;
-    padding: 24px!important;
+    background-position: center center !important;
+    padding: 12px!important;
 }
 
 #main-panel>table a[href="lastSuccessfulBuild/artifact/"] {
