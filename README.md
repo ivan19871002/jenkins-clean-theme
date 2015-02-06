@@ -17,4 +17,4 @@ Thanks to hawkfalcon (https://github.com/hawkfalcon/) for the icons.
 
 Thanks to Chris Kempson (https://github.com/chriskempson/base16) for the base16 color scheme used in the console.
 
-![Screenshot](http://jqa.me/jenkins/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/IndiumGames/jenkins-clean-theme/indium/screenshot.png)
