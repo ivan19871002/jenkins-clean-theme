@@ -500,14 +500,15 @@ a img.icon-collapse {
 }
 
 /* TODO: Get icons for these */
-a[href*="/job/"].task-icon-link img.icon-next,
-a[href*="/job/"].task-icon-link img.icon-previous {
+a[href*="/job/"].task-icon-link {
     /* This was a hack to begin with, and doesn't work with console output, etc */
     /*
     -webkit-filter: grayscale(100%) brightness(40%);
     filter: grayscale(100%) brightness(40%);
     visibility: visible;
     */
+    background: url(img/return.png) no-repeat;
+    background-size: contain;
 }
 
 a.yuimenuitemlabel {
@@ -564,6 +565,18 @@ a[href*="/configure"].yuimenuitemlabel {
 a[href*="/credential-store"].task-icon-link,
 a[href*="/credential-store"].yuimenuitemlabel {
     background: url(img/lock.png) no-repeat;
+    background-size: contain;
+}
+
+a[href*="/gerrit_manual_trigger"].task-icon-link,
+a[href*="/gerrit_manual_trigger"].yuimenuitemlabel {
+    background: url(img/git.png) no-repeat;
+    background-size: contain;
+}
+
+a[href*="/jenkins100k"].task-icon-link,
+a[href*="/jenkins100k"].yuimenuitemlabel {
+    background: url(img/clip.png) no-repeat;
     background-size: contain;
 }
 
